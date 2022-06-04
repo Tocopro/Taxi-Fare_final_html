@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taxi Fare</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<form onsubmit="return false">
+    <div class="taxi-fare">
+        <h2 class="heading">Taxi Fare Calculator</h2>
+        <label for="miles"></label><input class="section1" id="miles" name="miles" type="text" placeholder="0"/>
+        <input class="button1" type="submit" onclick="Calculate()" value="CALCULATE">
+        <input class="button2" type="reset" onclick="Reset()"   value="RESET">
+
+    </div>
+    <div class="cost"><br>
+        <p>Taxi Fare Cost</p>
+        <div id="cost-display" ></div>
+    </div>
+</form>
+</body>
+<script>
+    function Calculate() {
+        let miles_covered = document.getElementById("miles").value;
+        let meters_covered = parseInt(miles_covered) * 1610;
+        let constant = meters_covered / 400;
+        let fare_calc = (constant * 0.25) + 4;
+        let fare_calc1 = fare_calc.toFixed(2)
+        document.getElementById("cost-display").innerHTML = ("$") + fare_calc1.toString();
+    }
+    function Reset() {
+        document.getElementById("cost-display").innerHTML = "$0.00"
+    }
+</script>
+</html>
+
+css styling
+
+.taxi-fare{
+    text-align: center;
+    color: green;
+    font-family: Georgia, serif;
+    font-size: xx-large;
+
+
+}
+.cost{
+    text-align: center;
+    color: green;
+    font-size: x-large;
+}
+.button1{
+    color: blue;
+    font-size: x-large;
+}
+.section1{
+    color: green;
+    font-size: x-large;
+}
+.button2{
+    color: crimson;
+    font-size: x-large;
+}
+.section_4{
+    color: green;
+    font-size: x-large;
+}
